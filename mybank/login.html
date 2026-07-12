@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Login | MyBank</title>
+
+
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/*==================================================
+RESET
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px 20px;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:#0A1626;
+
+    background:
+        radial-gradient(circle at 85% 10%, rgba(168,30,59,.06), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(184,146,79,.08), transparent 50%),
+        linear-gradient(150deg,#FFFFFF,#F0EDE8);
+
+    overflow-y:auto;
+}
+
+/*==================================================
+TYPOGRAPHY
+==================================================*/
+
+h1,
+h2,
+h3,
+h4{
+
+    margin:0;
+
+    font-family:Georgia,serif;
+
+    font-weight:400;
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+/*==================================================
+EYEBROW
+==================================================*/
+
+.eyebrow{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:18px;
+
+    color:#D8BD86;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+}
+
+.eyebrow::before{
+
+    content:"";
+
+    width:26px;
+    height:2px;
+
+    background:#D8BD86;
+}
+
+/*==================================================
+CARD
+==================================================*/
+
+.card{
+
+    width:980px;
+    max-width:100%;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:#fff;
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.18);
+
+    border:none;
+
+    display:flex;
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 40px 90px rgba(17,24,39,.22);
+}
+
+/*==================================================
+ANIMATION
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(24px);
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/*==================================================
+LEFT PANEL
+==================================================*/
+
+.left{
+
+    flex:1.15;
+
+    display:flex;
+    align-items:center;
+
+    padding:60px 55px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top left,
+        rgba(168,30,59,.35), transparent 45%),
+        linear-gradient(135deg,#2A2136,#111827 75%);
+
+    border-radius:28px 0 0 28px;
+}
+
+/*==================================================
+GRID OVERLAY
+==================================================*/
+
+.left::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+
+    background-size:26px 26px;
+
+    opacity:.45;
+}
+
+/*==================================================
+CONTENT
+==================================================*/
+
+.left > div{
+
+    position:relative;
+
+    z-index:2;
+}
+
+/*==================================================
+LOGO
+==================================================*/
+
+.brand-mark{
+
+    width:58px;
+    height:58px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(135deg,#C82D4E,#7B1930);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    margin-bottom:55px;
+}
+
+.brand-mark svg{
+
+    width:26px;
+    height:26px;
+
+    stroke:#FFFFFF;
+}
+
+/*==================================================
+EYEBROW
+==================================================*/
+
+.left .eyebrow{
+
+    margin-bottom:24px;
+}
+
+/*==================================================
+TITLE
+==================================================*/
+
+.left h1{
+
+    font-size:58px;
+
+    line-height:1.18;
+
+    letter-spacing:-1px;
+
+    color:#FFFFFF;
+}
+
+.left h1 em{
+
+    display:block;
+
+    color:#D8BD86;
+
+    font-style:italic;
+}
+
+/*==================================================
+DESCRIPTION
+==================================================*/
+
+.left p{
+
+    margin-top:24px;
+
+    max-width:360px;
+
+    color:#C5C9D1;
+
+    font-size:15px;
+
+    line-height:1.75;
+}
+
+/*==================================================
+TRUST SECTION
+==================================================*/
+
+.left-trust{
+
+    display:flex;
+
+    gap:60px;
+
+    margin-top:65px;
+
+    padding-top:30px;
+
+    border-top:
+        1px solid rgba(255,255,255,.15);
+}
+
+.left-trust strong{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-family:Georgia,serif;
+
+    font-size:22px;
+
+    color:#FFFFFF;
+}
+
+.left-trust span{
+
+    color:#B9B2A7;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+/*==================================================
+LEFT PANEL RESPONSIVE
+==================================================*/
+
+@media(max-width:850px){
+
+    .left{
+
+        padding:45px 35px;
+
+        border-radius:28px 28px 0 0;
+    }
+
+    .left h1{
+
+        font-size:36px;
+    }
+
+    .left p{
+
+        max-width:100%;
+    }
+
+    .left-trust{
+
+        margin-top:35px;
+
+        gap:35px;
+    }
+}
+
+/*==================================================
+RIGHT PANEL
+==================================================*/
+
+.right{
+
+    flex:.85;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:70px 60px;
+
+    background:#FFFFFF;
+}
+
+/*==================================================
+HEADER
+==================================================*/
+
+.header{
+
+    margin-bottom:38px;
+}
+
+.badge{
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(142,23,48,.08);
+
+    border:1px solid rgba(142,23,48,.15);
+
+    color:#8E1730;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.header h2{
+
+    margin-top:18px;
+
+    font-size:38px;
+
+    line-height:1.15;
+
+    letter-spacing:-.6px;
+
+    color:#111827;
+}
+
+.header .sub{
+
+    margin-top:12px;
+
+    color:#6B7280;
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+/*==================================================
+FORM
+==================================================*/
+
+form{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:22px;
+}
+
+/*==================================================
+INPUT GROUP
+==================================================*/
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#111827;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+}
+
+/*==================================================
+INPUT WRAPPER
+==================================================*/
+
+.input-wrapper{
+
+    position:relative;
+
+    transition:.3s;
+}
+
+.input-wrapper i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:18px;
+    height:18px;
+
+    color:#7C8798;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+/*==================================================
+INPUT
+==================================================*/
+
+.input-wrapper input{
+
+    width:100%;
+
+    height:54px;
+
+    padding:0 18px 0 52px;
+
+    border-radius:14px;
+
+    border:1px solid #E5E7EB;
+
+    background:#F8F9FB;
+
+    color:#111827;
+
+    font-size:15px;
+
+    transition:.30s;
+
+    outline:none;
+}
+
+.input-wrapper input::placeholder{
+
+    color:#9CA3AF;
+}
+
+.input-wrapper:hover input{
+
+    border-color:#CBD5E1;
+}
+
+.input-wrapper input:focus{
+
+    background:#FFFFFF;
+
+    border-color:#8E1730;
+
+    box-shadow:
+        0 0 0 5px rgba(142,23,48,.10);
+}
+
+.input-wrapper:focus-within i{
+
+    color:#8E1730;
+}
+
+/*==================================================
+BUTTON
+==================================================*/
+
+.btn{
+
+    width:100%;
+
+    height:58px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(135deg,#0F172A,#111827);
+
+    color:#FFFFFF;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transition:.35s;
+
+    box-shadow:
+        0 14px 35px rgba(15,23,42,.22);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(255,255,255,.08);
+
+    opacity:0;
+
+    transition:.35s;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 20px 45px rgba(15,23,42,.28);
+}
+
+.btn:hover::after{
+
+    opacity:1;
+}
+
+.btn:active{
+
+    transform:translateY(0);
+}
+
+/*==================================================
+FOOTER
+==================================================*/
+
+.form-footer{
+
+    margin-top:26px;
+
+    text-align:center;
+}
+
+.form-footer a{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:#8E1730;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.form-footer a:hover{
+
+    color:#B91C3C;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="blur-circle c1"></div>
+<div class="blur-circle c2"></div>
+
+<div class="card">
+
+    <!-- LEFT -->
+    <div class="left">
+
+        <div>
+
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 10l9-6 9 6"/>
+                    <path d="M4 10v9h16v-9"/>
+                    <path d="M9 19v-6h6v6"/>
+                </svg>
+            </span>
+
+            <span class="eyebrow">Customer Zone</span>
+
+            <h1>
+                Welcome Back,
+                <em>Customer</em>
+            </h1>
+
+            <p>
+                Sign in to securely access your accounts, transfer funds and manage your banking anytime.
+            </p>
+
+            <div class="left-trust">
+
+                <div>
+                    <strong>256-bit</strong>
+                    <span>Secure Banking</span>
+                </div>
+
+                <div>
+                    <strong>24 / 7</strong>
+                    <span>Customer Support</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <div class="header">
+
+            <span class="badge">Customer Login</span>
+
+            <h2>Sign In</h2>
+
+            <p class="sub">
+                Access your personal banking account securely.
+            </p>
+
+        </div>
+
+        <form method="POST" action="login.php">
+
+            <div class="input-group">
+
+                <label>Username</label>
+
+                <div class="input-wrapper">
+
+                    <i data-lucide="user"></i>
+
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Enter your username"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <div class="input-wrapper">
+
+                    <i data-lucide="lock"></i>
+
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required>
+
+                </div>
+
+            </div>
+
+            <button class="btn" type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="form-footer">
+
+            <a href="register.html">
+
+                Create Customer Account
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+lucide.createIcons();
+</script>
+
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const error = params.get("error");
+
+if (error === "wrongpass") {
+    alert("Incorrect password. Please try again.");
+} else if (error === "nouser") {
+    alert("Username not found.");
+}
+</script>
+
+</body>
+</html>

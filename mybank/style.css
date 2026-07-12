@@ -1,0 +1,467 @@
+:root {
+    --bg-main: #f4f6f9;
+    --bg-card: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #eeeeee;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+    --bg-main: #121212;
+    --bg-card: #1e1e1e;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --border-color: #333333;
+}
+
+/* Update your existing styles to use these variables */
+body { background: var(--bg-main); color: var(--text-primary); }
+.card { background: var(--bg-card); border-color: var(--border-color); }
+.topbar { background: var(--bg-card); color: var(--text-primary); }
+
+
+
+/* SEARCH */
+.search-box{
+margin-top:20px;
+display:flex;
+}
+
+.search-box input{
+flex:1;
+padding:12px;
+border:1px solid #ccc;
+border-radius:5px 0 0 5px;
+}
+
+.search-box button{
+padding:12px;
+background:#97144d;
+color:white;
+border:none;
+}
+
+
+
+/* DASHBOARD */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: var(--bg-card); /* FIX: Was white */
+    color: var(--text-primary); /* FIX: Ensures text adapts */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.dropdown a{
+display:block;
+padding:10px;
+}
+
+.main {
+    margin-left: 250px; /* Adjusted to match your new sidebar width */
+    background: var(--bg-main); /* FIX: Was #f4f6f9 */
+    min-height: 100vh;
+    padding: 30px 50px;
+    transition: background 0.3s ease;
+}
+
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+/* Professional Card Styling */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px; /* Softer corners */
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); /* Very subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px); /* Lifts up slightly when hovered */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Make buttons look more modern */
+.btn {
+    background: #97144d;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Fix sidebar for dark mode visibility --- */
+[data-theme="dark"] .sidebar {
+    background: #000000; /* Even darker for professional contrast */
+    border-right: 1px solid var(--border-color);
+}
+
+.transactions li{
+display:flex;
+justify-content:space-between;
+padding:8px 0;
+}
+
+.credit{color:green;}
+.debit{color:red;}
+
+/* BUTTONS */
+
+.hero-actions{
+margin-top:25px;
+}
+.btn:hover{
+transform:scale(1.05);
+transition:0.3s;
+}
+
+.btn-outline{
+padding:12px 25px;
+border:2px solid #97144d;
+background:none;
+color:#97144d;
+border-radius:6px;
+cursor:pointer;
+}
+
+.btn-outline:hover{
+background:#97144d;
+color:white;
+transition:0.3s;
+}
+
+/* GLASS CARD */
+
+.glass-card{
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+margin-bottom:15px;
+animation:fadeUp 1s ease;
+}
+
+.glass-card.small{
+padding:15px;
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+/* FEATURES */
+.feature-card{
+flex:1;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+}
+
+/*Dashboard css*/
+
+/* SIDEBAR */
+.sidebar{
+position:fixed;
+width:220px;
+height:100%;
+background:#97144d;
+color:white;
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+padding:15px 20px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#7c0f3d;
+}
+
+
+/* TOPBAR */
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 30px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.user-box{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.user-circle{
+width:35px;
+height:35px;
+background:#97144d;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-weight:bold;
+}
+
+/* BALANCE CARD */
+.balance-card{
+margin:30px;
+padding:30px;
+border-radius:15px;
+color:white;
+background:linear-gradient(135deg,#97144d,#c2185b);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.balance-card h1{
+margin:10px 0;
+font-size:36px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+padding:0 30px 30px;
+}
+
+/* CARDS */
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* TRANSACTIONS */
+
+.transactions{
+list-style:none;
+padding:0;
+margin-top:10px;
+}
+
+.transactions li{
+display:flex;
+justify-content:space-between;
+padding:8px 0;
+border-bottom:1px solid #eee;
+}
+
+
+/* Better Typography */
+*{
+    font-family: 'Inter', sans-serif; /* Professional modern font */
+}
+
+.sidebar {
+    width: 250px; /* Slightly wider for icons */
+    background: #1a1a1a; /* Darker, more premium feel */
+    padding: 20px 0;
+}
+
+.sidebar-logo {
+    padding: 0 25px 30px;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 25px;
+    color: #b3b3b3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+/* Hover and Active states */
+.nav-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-item.active {
+    color: #fff;
+    background: rgba(151, 20, 77, 0.1); /* Subtle brand tint */
+    border-left: 4px solid #97144d; /* Brand color indicator */
+}
+
+/* Icon sizing */
+.nav-item i {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* Balance Hiding Class */
+.blurred {
+    filter: blur(8px);
+    user-select: none;
+}
+
+/* Transaction List Styling */
+.transaction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.transaction-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-name {
+    font-weight: 600;
+    color: var(--text-primary); /* FIX: Changed from #333 */
+}
+
+.transaction-date {
+    font-size: 12px;
+    color: var(--text-secondary); /* FIX: Changed from #888 */
+}
+
+/* Status Badges */
+.status-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.status-success { background: #e6f4ea; color: #1e7e34; }
+.status-pending { background: #fff3e0; color: #ef6c00; }
+
+.amount {
+    font-weight: 700;
+}
+
+/* Safety Overrides for Dark Mode */
+[data-theme="dark"] body {
+    background-color: var(--bg-main);
+}
+
+
+
+/* Admin Specific Styling */
+.stat-card {
+    background: var(--bg-card);
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 5px solid #97144d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.status-active {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.admin-table th {
+    background: #f8f9fa;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 15px;
+}
+
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+
+/* Specific styling for the Auth section */
+.auth-buttons {
+    gap: 20px;
+}
+
+.login-link {
+    font-weight: 600 !important;
+}
+
+.staff-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.staff-btn:hover {
+    background: white !important;
+    color: #97144d !important;
+    opacity: 1 !important;
+}
+
+/* Responsive adjustment */
+@media (max-width: 900px) {
+    .main-menu { display: none; } /* Hides middle links on small screens for neatness */
+}

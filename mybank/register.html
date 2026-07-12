@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Signup | MyBank</title>
+    
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+   /*==================================================
+RESET
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+    font-family:"Plus Jakarta Sans",sans-serif;
+    color:#0A1626;
+
+    background:
+        radial-gradient(circle at 85% 10%,rgba(168,30,59,.06),transparent 45%),
+        radial-gradient(circle at 10% 90%,rgba(184,146,79,.08),transparent 50%),
+        linear-gradient(150deg,#ffffff,#F5F1EC);
+
+    overflow:auto;
+}
+
+/*==================================================
+TYPOGRAPHY
+==================================================*/
+
+h1,h2,h3,h4{
+    font-family:Georgia,serif;
+    font-weight:400;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/*==================================================
+CARD
+==================================================*/
+
+.card{
+
+    width:min(1050px,95%);
+    min-height:720px;
+
+    display:flex;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 28px 70px rgba(0,0,0,.18);
+
+    animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+}
+
+/*==================================================
+LEFT PANEL
+==================================================*/
+
+.left{
+
+    flex:1.1;
+
+    display:flex;
+    align-items:center;
+
+    padding:70px 60px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top left,
+        rgba(168,30,59,.28),
+        transparent 40%),
+
+        linear-gradient(135deg,#2B2034,#111827 75%);
+}
+
+/* Grid */
+
+.left::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+        linear-gradient(90deg,
+        rgba(255,255,255,.03) 1px,
+        transparent 1px);
+
+    background-size:28px 28px;
+
+    opacity:.5;
+}
+
+.left > div{
+
+    position:relative;
+    z-index:2;
+}
+
+/*==================================================
+LOGO
+==================================================*/
+
+.brand-mark{
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(135deg,#C92D4F,#7B1930);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.35);
+
+    margin-bottom:48px;
+}
+
+.brand-mark svg{
+
+    width:26px;
+    height:26px;
+}
+
+/*==================================================
+EYEBROW
+==================================================*/
+
+.eyebrow{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    margin-bottom:20px;
+
+    color:#D8BD86;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+}
+
+.eyebrow::before{
+
+    content:"";
+
+    width:22px;
+    height:2px;
+
+    background:#D8BD86;
+}
+
+/*==================================================
+LEFT TITLE
+==================================================*/
+
+.left h1{
+
+    font-size:58px;
+
+    line-height:1.15;
+
+    color:#fff;
+
+    letter-spacing:-1px;
+}
+
+.left h1 em{
+
+    display:block;
+
+    color:#D8BD86;
+
+    font-style:italic;
+}
+
+.left p{
+
+    margin-top:26px;
+
+    max-width:380px;
+
+    color:#D0D5DD;
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+/*==================================================
+TRUST SECTION
+==================================================*/
+
+.left-trust{
+
+    display:flex;
+
+    gap:70px;
+
+    margin-top:55px;
+
+    padding-top:28px;
+
+    border-top:1px solid rgba(255,255,255,.12);
+}
+
+.left-trust strong{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:30px;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+}
+
+.left-trust span{
+
+    color:#AEB7C3;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+/*==================================================
+RIGHT PANEL
+==================================================*/
+
+.right{
+
+    flex:.9;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    padding:65px 55px;
+
+    background:#FFFFFF;
+}
+
+/*==================================================
+HEADER
+==================================================*/
+
+.header{
+
+    margin-bottom:38px;
+}
+
+.badge{
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(142,23,48,.08);
+
+    border:1px solid rgba(142,23,48,.15);
+
+    color:#8E1730;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.header h2{
+
+    margin-top:18px;
+
+    font-size:38px;
+
+    color:#111827;
+
+    line-height:1.15;
+
+    letter-spacing:-.5px;
+}
+
+.header .sub{
+
+    margin-top:12px;
+
+    color:#6B7280;
+
+    font-size:15px;
+
+    line-height:1.7;
+}
+
+/*==================================================
+FORM
+==================================================*/
+
+form{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:20px;
+}
+
+/*==================================================
+LABELS
+==================================================*/
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#111827;
+}
+
+/*==================================================
+INPUT
+==================================================*/
+
+.input-wrapper{
+
+    position:relative;
+}
+
+.input-wrapper i{
+
+    position:absolute;
+
+    left:18px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:18px;
+    height:18px;
+
+    color:#7C8798;
+
+    pointer-events:none;
+
+    transition:.3s;
+}
+
+.input-wrapper input{
+
+    width:100%;
+
+    height:54px;
+
+    padding:0 18px 0 52px;
+
+    border-radius:14px;
+
+    border:1px solid #E5E7EB;
+
+    background:#F8F9FB;
+
+    font-size:15px;
+
+    color:#111827;
+
+    transition:.30s;
+
+    outline:none;
+}
+
+.input-wrapper input::placeholder{
+
+    color:#9CA3AF;
+}
+
+.input-wrapper:hover input{
+
+    border-color:#D1D5DB;
+}
+
+.input-wrapper input:focus{
+
+    background:#fff;
+
+    border-color:#8E1730;
+
+    box-shadow:0 0 0 5px rgba(142,23,48,.10);
+}
+
+.input-wrapper:focus-within i{
+
+    color:#8E1730;
+}
+
+/*==================================================
+BUTTON
+==================================================*/
+
+.btn{
+
+    width:100%;
+
+    height:58px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(135deg,#111827,#020617);
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 14px 35px rgba(17,24,39,.20);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.btn::after{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(255,255,255,.08);
+
+    opacity:0;
+
+    transition:.35s;
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 20px 45px rgba(17,24,39,.28);
+}
+
+.btn:hover::after{
+
+    opacity:1;
+}
+
+.btn:active{
+
+    transform:translateY(0);
+}
+
+/*==================================================
+FOOTER
+==================================================*/
+
+.form-footer{
+
+    margin-top:28px;
+
+    text-align:center;
+}
+
+.form-footer a{
+
+    color:#8E1730;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.form-footer a:hover{
+
+    color:#B91C3C;
+}
+
+/*==================================================
+CARD HOVER
+==================================================*/
+
+.card{
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 40px 90px rgba(17,24,39,.22);
+}
+
+/*==================================================
+INPUT ANIMATION
+==================================================*/
+
+.input-group{
+
+    transition:.25s ease;
+}
+
+.input-group:hover{
+
+    transform:translateY(-1px);
+}
+
+/*==================================================
+TEXT SELECTION
+==================================================*/
+
+::selection{
+
+    background:#8E1730;
+
+    color:#FFFFFF;
+}
+
+/*==================================================
+SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#B8B8B8;
+
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#8E1730;
+}
+
+/*==================================================
+REMOVE TAP HIGHLIGHT
+==================================================*/
+
+button,
+input,
+a{
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+/*==================================================
+TABLET
+==================================================*/
+
+@media (max-width:1100px){
+
+    body{
+
+        padding:30px 18px;
+    }
+
+    .card{
+
+        width:100%;
+
+        max-width:960px;
+    }
+
+    .left{
+
+        padding:50px 40px;
+    }
+
+    .right{
+
+        padding:50px 40px;
+    }
+
+    .left h1{
+
+        font-size:46px;
+    }
+
+    .header h2{
+
+        font-size:34px;
+    }
+
+    .left-trust{
+
+        gap:40px;
+    }
+}
+
+/*==================================================
+MOBILE
+==================================================*/
+
+@media (max-width:850px){
+
+    body{
+
+        padding:20px;
+    }
+
+    .card{
+
+        flex-direction:column;
+
+        max-width:500px;
+
+        min-height:auto;
+    }
+
+    .left{
+
+        border-radius:28px 28px 0 0;
+
+        padding:45px 35px;
+    }
+
+    .right{
+
+        padding:40px 35px;
+    }
+
+    .left h1{
+
+        font-size:36px;
+    }
+
+    .left p{
+
+        max-width:100%;
+    }
+
+    .left-trust{
+
+        margin-top:35px;
+
+        gap:30px;
+    }
+
+    .header h2{
+
+        font-size:30px;
+    }
+}
+
+/*==================================================
+SMALL MOBILE
+==================================================*/
+
+@media (max-width:480px){
+
+    body{
+
+        padding:15px;
+    }
+
+    .left{
+
+        padding:35px 24px;
+    }
+
+    .right{
+
+        padding:30px 22px;
+    }
+
+    .brand-mark{
+
+        width:52px;
+
+        height:52px;
+    }
+
+    .left h1{
+
+        font-size:30px;
+    }
+
+    .header h2{
+
+        font-size:26px;
+    }
+
+    .badge{
+
+        font-size:10px;
+
+        letter-spacing:1.5px;
+
+        padding:7px 14px;
+    }
+
+    .left-trust{
+
+        flex-direction:column;
+
+        gap:18px;
+
+        margin-top:28px;
+
+        padding-top:22px;
+    }
+
+    .left-trust strong{
+
+        font-size:20px;
+    }
+
+    .input-wrapper input{
+
+        height:50px;
+
+        font-size:14px;
+    }
+
+    .btn{
+
+        height:54px;
+
+        font-size:14px;
+    }
+
+    .form-footer{
+
+        margin-top:22px;
+    }
+
+    .form-footer a{
+
+        font-size:13px;
+    }
+}
+
+/*==================================================
+SMOOTH FADE IN
+==================================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.card{
+
+    animation:fadeUp .6s ease;
+}
+
+
+</style>
+    
+</head>
+<body>
+
+    <div class="card">
+
+        <div class="left">
+
+    <div>
+
+        <span class="brand-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 10l9-6 9 6"/>
+                <path d="M4 10v9h16v-9"/>
+                <path d="M9 19v-6h6v6"/>
+            </svg>
+        </span>
+
+        <span class="eyebrow">Customer Zone</span>
+
+        <h1>
+            Welcome Back,
+            <em>Customer</em>
+        </h1>
+
+        <p>
+            Create your secure customer account to access banking services, manage transactions and enjoy a seamless digital banking experience.
+        </p>
+
+        <div class="left-trust">
+
+            <div>
+                <strong>256-bit</strong>
+                <span>Encrypted Banking</span>
+            </div>
+
+            <div>
+                <strong>24 / 7</strong>
+                <span>Customer Support</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+       <div class="right">
+
+    <div class="header">
+
+        <span class="badge">Customer Registration</span>
+
+        <h2>Create Customer Account</h2>
+
+        <p class="sub">
+            Open your secure banking account in just a few steps.
+        </p>
+
+    </div>
+
+    <form action="register.php" method="POST">
+
+        <!-- Full Name -->
+        <div class="input-group">
+
+            <label for="full_name">Full Name</label>
+
+            <div class="input-wrapper">
+
+                <i data-lucide="user"></i>
+
+                <input
+                    type="text"
+                    id="full_name"
+                    name="full_name"
+                    placeholder="Enter your full name"
+                    required>
+
+            </div>
+
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+
+            <label for="email">Email Address</label>
+
+            <div class="input-wrapper">
+
+                <i data-lucide="mail"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+        </div>
+
+        <!-- Phone -->
+        <div class="input-group">
+
+            <label for="phone">Phone Number</label>
+
+            <div class="input-wrapper">
+
+                <i data-lucide="phone"></i>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number">
+
+            </div>
+
+        </div>
+
+        <!-- Username -->
+        <div class="input-group">
+
+            <label for="username">Username</label>
+
+            <div class="input-wrapper">
+
+                <i data-lucide="user-check"></i>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Choose a username"
+                    required>
+
+            </div>
+
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+
+            <label for="password">Password</label>
+
+            <div class="input-wrapper">
+
+                <i data-lucide="lock"></i>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    required>
+
+            </div>
+
+        </div>
+
+        <button class="btn" type="submit">
+
+            Create Customer Account
+
+        </button>
+
+    </form>
+
+    <div class="form-footer">
+
+        <a href="login.html">
+
+            ← Already have an account? Sign In
+
+        </a>
+
+    </div>
+
+</div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>

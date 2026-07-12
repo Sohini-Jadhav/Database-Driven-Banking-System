@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | MyBank</title>
+ 
+    <script src="https://unpkg.com/lucide@latest"></script>
+ 
+    <style>
+    
+ 
+        * {
+            box-sizing: border-box;
+        }
+ 
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #0A1626;
+            background-color: white;
+            line-height: 1.6;
+            padding: 40px 20px;
+ 
+            background:
+                radial-gradient(circle at 85% 10%, rgba(168,30,59,0.06), transparent 45%),
+                radial-gradient(circle at 10% 90%, rgba(184,146,79,0.08), transparent 50%),
+                linear-gradient(150deg, white, #F0EDE8);
+        }
+ 
+        h1, h2, h3, h4 {
+            font-family: Georgia, serif;
+            margin: 0;
+        }
+ 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+ 
+        /* Small heading style, same as home.html .eyebrow */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #8E1730;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+ 
+        .eyebrow::before {
+            content: "";
+            width: 25px;
+            height: 2px;
+            background-color: #B8924F;
+        }
+ 
+        /* =========================
+           CARD
+        ========================= */
+ 
+     .card {
+    width: min(950px, 95%);
+    min-height: 560px;
+
+    display: flex;
+
+    border-radius: 24px;
+    overflow: hidden;
+
+    background:white;
+
+    border:1px solid #E3DFD8;
+
+    box-shadow:
+        0 25px 60px rgba(10,22,38,0.18);
+
+}
+ /* LEFT PANEL */
+.left {
+    flex: 1;
+    padding: 60px 55px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top left, rgba(168,30,59,0.35), transparent 45%),
+        linear-gradient(135deg, #1f2937, #111827 75%);
+
+    border-radius: 30px 0 0 30px;
+}
+
+
+/* GRID EFFECT */
+.left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+
+    background-size: 25px 25px;
+
+    opacity: 0.4;
+}
+
+
+/* CONTENT ABOVE GRID */
+.left > div {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* HOME ICON BOX */
+.brand-mark {
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 14px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#c52b4d,#72182c);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.35);
+
+    margin-bottom:55px;
+}
+
+
+.brand-mark svg {
+    width:25px;
+    height:25px;
+    color:white;
+}
+
+
+
+/* SMALL LABEL */
+.left .tag {
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    color:#d8bd86;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+}
+
+
+.left .tag::before {
+
+    content:"";
+
+    width:28px;
+    height:2px;
+
+    background:#d8bd86;
+
+}
+
+
+
+/* MAIN HEADING */
+.left h1 {
+
+    font-family:Georgia, serif;
+
+    font-size:46px;
+
+    line-height:1.25;
+
+    font-weight:400;
+
+    color:#ffffff;
+
+    letter-spacing:-1px;
+
+    margin:0;
+
+}
+
+
+.left h1 em {
+
+    display:block;
+
+    color:#d8bd86;
+
+    font-style:italic;
+
+}
+
+
+
+/* DESCRIPTION */
+.left p {
+
+    margin-top:25px;
+
+    max-width:360px;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    color:#c5c9d1;
+
+}
+
+
+
+/* TRUST SECTION */
+.left-trust {
+
+    display:flex;
+
+    gap:45px;
+
+    margin-top:50px;
+
+    padding-top:30px;
+
+    border-top:
+
+    1px solid rgba(255,255,255,0.15);
+
+}
+
+
+
+.left-trust strong {
+
+    display:block;
+
+    font-family:Georgia,serif;
+
+    font-size:22px;
+
+    color:white;
+
+    margin-bottom:6px;
+
+}
+
+
+.left-trust span {
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    color:#b9b2a7;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+ 
+        /* RIGHT SIDE */
+      .right {
+
+    flex:1;
+
+    padding:60px 55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    background:white;
+
+}
+ 
+        .header {
+            margin-bottom: 40px;
+        }
+ 
+        .header h2 {
+            margin: 14px 0 0 0;
+            font-size: 32px;
+            font-weight: normal;
+            color: #0A1626;
+        }
+ 
+        .header .sub {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            color: #6E675E;
+            margin-top: 8px;
+        }
+ 
+        .badge {
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgba(142,23,48,0.08);
+            color: #8E1730;
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: inline-block;
+            border: 1px solid rgba(142,23,48,0.2);
+        }
+ 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+ 
+        .input-group label {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+            color: #0A1626;
+            letter-spacing: 0.02em;
+        }
+ 
+        .input-wrapper {
+            position: relative;
+        }
+ 
+        .input-wrapper i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6E675E;
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+            transition: color 0.25s ease;
+        }
+ 
+        .input-wrapper input {
+            width: 100%;
+            box-sizing: border-box;
+           padding:13px 18px 13px 48px;
+            border-radius: 10px;
+            border: 1px solid #E3DFD8;
+            background: #F7F5F2;
+            color: #0A1626;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: all 0.25s ease;
+        }
+ 
+        .input-wrapper input:focus {
+            border-color: #8E1730;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(142,23,48,0.1);
+        }
+ 
+        .input-wrapper input:focus + i {
+            color: #8E1730;
+        }
+ 
+        /* BUTTON - mirrors home.html .btn-admin */
+        .btn {
+            width: 100%;
+            background: #0A1626;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 5px 10px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+ 
+        .btn:hover {
+            background: black;
+            transform: translateY(-2px);
+        }
+ 
+        .btn:active {
+            transform: translateY(1px);
+        }
+ 
+        .form-footer {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        .form-footer a {
+            color: #8E1730;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+ 
+        .form-footer a:hover {
+            color: #A81E3B;
+        }
+ 
+        .back-home {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #6E675E;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+ 
+        .back-home:hover {
+            color: #8E1730;
+        }
+ 
+        /* RESPONSIVE */
+        @media(max-width: 850px) {
+            body {
+                padding: 20px;
+            }
+ 
+            .card {
+                flex-direction: column;
+                width: 95%;
+                max-width: 480px;
+                min-height: auto;
+            }
+ 
+            .left {
+                padding: 45px 35px;
+                justify-content: flex-start;
+                text-align: left;
+            }
+ 
+            .left h1 {
+
+    font-size:36px;
+
+    line-height:1.25;
+
+}
+ 
+            .right {
+                padding: 45px 35px;
+            }
+        }
+
+        .card{
+
+    animation:fadeUp 0.6s ease;
+
+}
+
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+    </style>
+</head>
+ 
+<body>
+ 
+ 
+<div class="card">
+ 
+    <div class="left">
+        <div>
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"/><path d="M4 10v9h16v-9"/><path d="M9 19v-6h6v6"/></svg>
+            </span>
+            <span class="eyebrow" style="color:#D8BD86;">Admin Zone</span>
+            <h1>Welcome Back, <em>Admin</em></h1>
+            <p>Sign in to manage customers, accounts and banking activity securely and efficiently.</p>
+            <div class="left-trust">
+                <div><strong>128-bit</strong><span>Encrypted Sessions</span></div>
+                <div><strong>24 / 7</strong><span>Account Monitoring</span></div>
+            </div>
+        </div>
+    </div>
+ 
+    <div class="right">
+ 
+        <div class="header">
+            <div class="badge">Admin Zone</div>
+            <h2>Sign In</h2>
+            <div class="sub">Provide your institutional banking credentials below.</div>
+        </div>
+ 
+        <form method="POST" action="admin_login.php">
+ 
+            <div class="input-group">
+                <label>Username</label>
+                <div class="input-wrapper">
+                    <i data-lucide="user"></i>
+                    <input type="text" name="username" required autocomplete="username">
+                </div>
+            </div>
+ 
+            <div class="input-group">
+                <label>Password</label>
+                <div class="input-wrapper">
+                    <i data-lucide="lock"></i>
+                    <input type="password" name="password" required autocomplete="current-password">
+                </div>
+            </div>
+ 
+            <button type="submit" class="btn">
+                Login
+            </button>
+ 
+        </form>
+ 
+        <div class="form-footer">
+            <a href="admin_register.html">Create Admin Account</a>
+        </div>
+ 
+    </div>
+ 
+</div>
+ 
+<script>
+    lucide.createIcons();
+</script>
+ 
+</body>
+</html>
+ 
