@@ -4,6 +4,14 @@ A comprehensive **Database-Driven Banking System** developed using **MySQL, PHP,
 
 ---
 
+## 🔗 Live Demo
+
+**🔗 Website:** https://mybank.infinityfree.io
+
+
+---
+
+
 ## Overview
 
 This project simulates the core operations of a banking system where administrators manage customer accounts while customers can securely access and perform banking activities. The primary objective is to showcase the practical application of **MySQL database design**, relational data management, SQL queries, and CRUD operations within a real-world banking environment.
